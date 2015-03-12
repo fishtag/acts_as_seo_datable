@@ -1,4 +1,5 @@
 require 'acts_as_seo_friendly/engine'
+require 'meta-tags'
 
 module ActsAsSeoFriendly
   extend ActiveSupport::Autoload
