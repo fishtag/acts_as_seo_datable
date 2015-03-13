@@ -9,7 +9,7 @@ module ActsAsSeoFriendly
         # Define association
         has_one :seo_datum,
                 as: :datable,
-                class_name: 'ActsAsSeoFriendly::SeoDatum',
+                class_name: '::ActsAsSeoFriendly::SeoDatum',
                 dependent: :destroy
 
         # Allow to create or update seo_datum as nested form
