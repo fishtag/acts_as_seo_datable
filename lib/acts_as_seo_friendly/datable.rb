@@ -7,10 +7,16 @@ module ActsAsSeoFriendly
     def acts_as_seo_friendly(format_attribute: :title)
       class_eval do
         # Define association
-        has_one :seo_datum, dependent: :destroy, class_name: 'ActsAsSeoFriendly::SeoDatum', as: :datable
+        has_one :seo_datum,
+                as: :datable,
+                class_name: 'ActsAsSeoFriendly::SeoDatum',
+                dependent: :destroy
 
         # Allow to create or update seo_datum as nested form
-        accepts_nested_attributes_for :seo_datum, update_only: true, allow_destroy: true
+        accepts_nested_attributes_for :seo_datum,
+                                      reject_if: :all_blank,
+                                      update_only: true,
+                                      allow_destroy: true
 
         def self.seo_friendly?
           true
