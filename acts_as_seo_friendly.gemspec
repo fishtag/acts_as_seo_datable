@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = 'Description of ActsAsSeoFriendly.'
   s.license     = 'MIT'
 
-  s.files = Dir['{config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
+  s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
   s.add_dependency 'rails', '~> 4.2.0'
   s.add_dependency 'meta-tags', '~> 2.0.0'
