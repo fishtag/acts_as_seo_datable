@@ -37,8 +37,12 @@ module ActsAsSeoFriendly
 
       # Defines instance methods for setting basic seo datum attributes
       ActsAsSeoFriendly::Datable::Core::SEO_ATTRIBUTES.each do |seo_attr|
+        define_method(%(#{seo_attr}_format_attributes)) do
+          try(%(format_meta_#{seo_attr}_with)) || send(self.class.format_attribute)
+        end
+
         define_method(%[dynamic_#{seo_attr}]) do
-          self.class.send(%[#{seo_attr}_format]) % send(self.class.format_attribute)
+          self.class.send(%[#{seo_attr}_format]) % send(%(#{seo_attr}_format_attributes))
         end
       end
     end
