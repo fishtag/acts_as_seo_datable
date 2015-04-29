@@ -12,12 +12,6 @@ module ActsAsSeoFriendly
                 class_name: '::ActsAsSeoFriendly::SeoDatum',
                 dependent: :destroy
 
-        # Allow to create or update seo_datum as nested form
-        accepts_nested_attributes_for :seo_datum,
-                                      reject_if: :all_blank,
-                                      update_only: true,
-                                      allow_destroy: true
-
         def self.seo_friendly?
           true
         end
