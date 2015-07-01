@@ -4,7 +4,7 @@ module ActsAsSeoFriendly
       ActsAsSeoFriendly::Datable::Core::SEO_ATTRIBUTES.each do |seo_attr|
         define_method(seo_attr) do
           if seo_datum && seo_datum.persisted?
-            seo_datum.public_send(seo_attr)
+            seo_datum.public_send(seo_attr).presence || public_send("dynamic_#{seo_attr}")
           else
             public_send("dynamic_#{seo_attr}")
           end
